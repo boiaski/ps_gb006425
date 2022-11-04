@@ -13,5 +13,7 @@
             "email": "gb006425@cfjl.com.br"
         }
     ],
-    "require": {}
+    "require": {
+        "bramus/router": "^1.6"
+    }
 }
