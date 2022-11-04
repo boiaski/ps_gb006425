@@ -2,4 +2,4 @@
 /vendor
 
 # ignorar o arquivo constants.php que tem senhas particulares
-constants.php
+config/constants.php
