@@ -2,6 +2,9 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-echo date('d/m/Y H:i:s');
-echo '<br>';
-echo FRONTEND_TITLE;
+/**
+ *         MVC de desenvolvimento
+ * Model que são classes de acesso a dados
+ * View que são as classes/comandos de exibição de conteúdo
+ * Controller que intermediam a comunicação entre dados e visão
+ */
