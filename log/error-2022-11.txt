@@ -1,0 +1,44 @@
+[04-Nov-2022 21:52:52 America/Sao_Paulo] SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+[04-Nov-2022 21:52:52 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Class "Petshop\Core\Exception" not found in C:\xampp\htdocs\projeto01\src\Core\Exception.php:5
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\vendor\composer\ClassLoader.php(571): include()
+#1 C:\xampp\htdocs\projeto01\vendor\composer\ClassLoader.php(428): Composer\Autoload\includeFile('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\projeto01\src\Core\DB.php(29): Composer\Autoload\ClassLoader->loadClass('Petshop\\Core\\Ex...')
+#3 C:\xampp\htdocs\projeto01\src\Core\DB.php(45): Petshop\Core\DB::getInstance()
+#4 C:\xampp\htdocs\projeto01\public\Index.php(9): Petshop\Core\DB::select('select * from e...', Array)
+#5 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\Exception.php on line 5
+[04-Nov-2022 21:56:04 America/Sao_Paulo] SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+[04-Nov-2022 21:56:04 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Class "Petshop\Core\Exception" not found in C:\xampp\htdocs\projeto01\src\Core\Exception.php:5
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\vendor\composer\ClassLoader.php(571): include()
+#1 C:\xampp\htdocs\projeto01\vendor\composer\ClassLoader.php(428): Composer\Autoload\includeFile('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\projeto01\src\Core\DB.php(29): Composer\Autoload\ClassLoader->loadClass('Petshop\\Core\\Ex...')
+#3 C:\xampp\htdocs\projeto01\src\Core\DB.php(45): Petshop\Core\DB::getInstance()
+#4 C:\xampp\htdocs\projeto01\public\Index.php(9): Petshop\Core\DB::select('select * from e...', Array)
+#5 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\Exception.php on line 5
+[04-Nov-2022 21:57:03 America/Sao_Paulo] SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+[04-Nov-2022 21:57:03 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Class "Petshop\Core\Exception" not found in C:\xampp\htdocs\projeto01\src\Core\Exception.php:5
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\vendor\composer\ClassLoader.php(571): include()
+#1 C:\xampp\htdocs\projeto01\vendor\composer\ClassLoader.php(428): Composer\Autoload\includeFile('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\projeto01\src\Core\DB.php(29): Composer\Autoload\ClassLoader->loadClass('Petshop\\Core\\Ex...')
+#3 C:\xampp\htdocs\projeto01\src\Core\DB.php(45): Petshop\Core\DB::getInstance()
+#4 C:\xampp\htdocs\projeto01\public\Index.php(9): Petshop\Core\DB::select('select * from e...', Array)
+#5 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\Exception.php on line 5
+[04-Nov-2022 21:57:54 America/Sao_Paulo] SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+[04-Nov-2022 21:57:54 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: Falaha ao realizar a conexão com o servidor, por favor, tente mais tarde in C:\xampp\htdocs\projeto01\src\Core\DB.php:29
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\src\Core\DB.php(45): Petshop\Core\DB::getInstance()
+#1 C:\xampp\htdocs\projeto01\public\Index.php(9): Petshop\Core\DB::select('select * from e...', Array)
+#2 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\DB.php on line 29
+[05-Nov-2022 13:52:46 America/Sao_Paulo] SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+[05-Nov-2022 13:52:46 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: Falha ao realizar a conexão com o servidor, por favor, tente mais tarde in C:\xampp\htdocs\projeto01\src\Core\DB.php:29
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\src\Core\DB.php(45): Petshop\Core\DB::getInstance()
+#1 C:\xampp\htdocs\projeto01\public\Index.php(9): Petshop\Core\DB::select('select * from e...', Array)
+#2 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\DB.php on line 29
