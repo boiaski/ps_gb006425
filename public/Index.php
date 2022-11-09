@@ -1,10 +1,9 @@
 <?php
 
+use Petshop\Model\Dica;
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
-/**
- *         MVC de desenvolvimento
- * Model que são classes de acesso a dados
- * View que são as classes/comandos de exibição de conteúdo
- * Controller que intermediam a comunicação entre dados e visão
- */
+$dica = new Dica();
+$dica->titulo = 'teste';
+echo $dica->titulo;
