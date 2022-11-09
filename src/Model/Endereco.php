@@ -2,37 +2,41 @@
 
 namespace Petshop\Model;
 
-//enderecos
-class Endereco
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'enderecos')]
+class Endereco extends DAO
 {
-    //Cód. Endereco, pk, nn, auto
+    #[Campo(label: 'Cód. Endereço', nn:true, pk:true, auto:true)]
     protected $idEndereco;
 
-    //Cód Cliente, nn
+    #[Campo(label: 'Cód. Cliente', nn:true)]
     protected $idCliente;
 
-    //Cep, nn
+    #[Campo(label: 'Cep', nn:true)]
     protected $cep;
 
-    //Cidade, nn
+    #[Campo(label: 'Cidade', nn:true)]
     protected $cidade;
 
-    //Estado, nn
+    #[Campo(label: 'Estado', nn:true)]
     protected $estado;
 
-    //Rua
+    #[Campo(label: 'Rua')]
     protected $rua;
 
-    //Bairro  
+    #[Campo(label: 'Bairro')]
     protected $bairro;
 
-    //Numero de Endereço
+    #[Campo(label: 'Numero')]
     protected $numero;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn:true, auto:true)]
     protected $created_at;
 
-    //Dt. Alteração, nn, auto
+    #[Campo(label: 'Dt. Aleração', nn:true, auto:true)]
     protected $updated_at;
 
     public function getIdEndereco()
@@ -110,11 +114,11 @@ class Endereco
         return $this;
     }
 
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }
-    public function getUpdatedAt()
+    public function getUpdated_At()
     {
         return $this->updated_at;
     }

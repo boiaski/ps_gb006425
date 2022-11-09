@@ -2,22 +2,26 @@
 
 namespace Petshop\Model;
 
-//categorias
-class Categoria
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'categorias')]
+class Categoria extends DAO
 {
-    //Cód. Categoria, pk, nn, auto
+    #[Campo(label: 'Cód. Categoria', nn:true, pk:true, auto:true)]
     protected $idCategoria;
 
-    //Nome da Categoria, nn
+    #[Campo(label: 'Nome', nn:true)]
     protected $nome;
 
-    //Descrição da Categoria
+    #[Campo(label: 'Descrição')]
     protected $descricao;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn:true, auto:true)]
     protected $created_at;
 
-    //Dt. Alteração, nn, auto
+    #[Campo(label: 'Dt. Aleração', nn:true, auto:true)]
     protected $updated_at;
 
     public function getIdCategoria()
@@ -45,11 +49,11 @@ class Categoria
         return $this;
     }
 
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }
-    public function getUpdatedAt()
+    public function getUpdated_At()
     {
         return $this->updated_at;
     }

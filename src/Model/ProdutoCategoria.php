@@ -2,16 +2,20 @@
 
 namespace Petshop\Model;
 
-//produtos_categorias
-class ProdutoCategoria 
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'produtos_categorias')]
+class ProdutoCategoria extends DAO
 {
-    //Cód. Produto, pk, nn
+    #[Campo(label: 'Cód. Produto', nn:true, pk:true)]
     protected $idProduto;
 
-    //Cód. Categoria, pk, nn
+    #[Campo(label: 'Cód. Categoria', nn:true, pk:true)]
     protected $idCategoria;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn:true, auto:true)]
     protected $created_at;
 
     public function getIdProduto()
@@ -34,7 +38,7 @@ class ProdutoCategoria
         return $this;
     }
 
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }

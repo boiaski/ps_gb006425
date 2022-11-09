@@ -2,58 +2,62 @@
 
 namespace Petshop\Model;
 
-//empresas
-class Empresa
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'empresas')]
+class Empresa extends DAO
 {
-    //Cód. Empresa, pk, nn, auto
+    #[Campo(label: 'Cód. Empresa', nn:true, pk:true, auto:true)]
     protected $idEmpresa;
 
-    //Nomde de Fantasia, nn
+    #[Campo(label: 'Nome', nn:true)]
     protected $nomeFantasia;
 
-    //Razão Social da empresa, nn
+    #[Campo(label: 'Razão Social', nn:true)]
     protected $razaoSocial;
 
-    //Tipo de empresa, nn
+    #[Campo(label: 'Tipo', nn:true)]
     protected $tipo;
 
-    //Cep de onde é a empresa, nn
+    #[Campo(label: 'Cep', nn:true)]
     protected $cep;
 
-    //Cidade de onde é a empresa, nn
+    #[Campo(label: 'Cidade', nn:true)]
     protected $cidade;
 
-    //Estado de onde é a empresa, nn
+    #[Campo(label: 'Estado', nn:true)]
     protected $estado;
 
-    //Rua da empresa
+    #[Campo(label: 'Rua')]
     protected $rua;
 
-    //Bairro da empresa
+    #[Campo(label: 'Bairro')]
     protected $bairro;
 
-    //Numero da empresa
+    #[Campo(label: 'Numero')]
     protected $numero;
 
-    //Telefone da empresa, nn
+    #[Campo(label: 'Telefone', nn:true)]
     protected $telefone;
 
-    //Telefone 2 da empresa
+    #[Campo(label: 'Telefone - 2')]
     protected $telefone2;
 
-    //Site da empresa
+    #[Campo(label: 'Site')]
     protected $site;
 
-    //Email da empresa, nn
+    #[Campo(label: 'Email', nn:true)]
     protected $email;
 
-    //Cnpj da empresa, nn
+    #[Campo(label: 'Cnpj', nn:true)]
     protected $cnpj;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn:true, auto:true)]
     protected $created_at;
 
-    //Dt. Alteração, nn, auto
+    #[Campo(label: 'Dt. Aleração', nn:true, auto:true)]
     protected $updated_at;
 
     public function getIdEmpresa()
@@ -202,11 +206,11 @@ class Empresa
         return $this;
     }
 
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }
-    public function getUpdatedAt()
+    public function getUpdated_At()
     {
         return $this->updated_at;
     }

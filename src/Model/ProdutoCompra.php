@@ -2,19 +2,23 @@
 
 namespace Petshop\Model;
 
-//produtos_compras
-class ProdutoCompra
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'produtos_compras')]
+class ProdutoCompra extends DAO
 {
-    //Cód. Produto, pk, nn
+    #[Campo(label: 'Cód. Produto', nn:true, pk:true)]
     protected $idProduto;
 
-    //Cód. Fornecedor, pk, nn
+    #[Campo(label: 'Cód. Fornecedor', nn:true, pk:true)]
     protected $idFornecedor;
 
-    //Preço do produto, nn
+    #[Campo(label: 'Preço', nn:true, pk:true)]
     protected $preco;
 
-    //Quantidade de Produtos, nn
+    #[Campo(label: 'Quantidade', nn:true, pk:true)]
     protected $quantidade;
 
     public function getIdProduto()

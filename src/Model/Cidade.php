@@ -2,34 +2,38 @@
 
 namespace Petshop\Model;
 
-//cidades
-class Cidade
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'cidades')]
+class Cidade extends DAO
 {
-    //Cód. Cidade, pk, nn, auto
+    #[Campo(label: 'Cód. Cidade', nn:true, pk:true, auto:true)]
     protected $idCidade;
 
-    //Estado, nn
+    #[Campo(label: 'Estado', nn:true)]
     protected $uf;
 
-    //Instituto Brasileiro de Geografia e Estatistica, nn
+    #[Campo(label: 'IBGE', nn:true)]
     protected $ibge;
 
-    //ibge7, nn
+    #[Campo(label: 'IBGE7', nn:true)]
     protected $igbe7;
 
-    //Municipio, nn
+    #[Campo(label: 'Municipio', nn:true)]
     protected $municipio;
 
-    //Região, nn
+    #[Campo(label: 'Região', nn:true)]
     protected $regiao;
 
-    //Quantidade de pessoas na Cidade, nn
+    #[Campo(label: 'População', nn:true)]
     protected $populacao;
 
-    //Porte, nn
+    #[Campo(label: 'Porte', nn:true)]
     protected $porte;
 
-    //Capital 'S' ou 'N', nn
+    #[Campo(label: 'Capital', nn:true)]
     protected $capital;
 
     public function getIdCidade()

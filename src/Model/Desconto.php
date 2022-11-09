@@ -2,28 +2,32 @@
 
 namespace Petshop\Model;
 
-//descontos
-class Desconto
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'descontos')]
+class Desconto extends DAO
 {
-    //Cód. Desconto, pk, nn, auto
+    #[Campo(label: 'Cód. Desconto', nn:true, pk:true, auto:true)]
     protected $idDesconto;
 
-    //Código de desconto
+    #[Campo(label: 'Código')]
     protected $codigo;
 
-    //Data de validade Inicial
+    #[Campo(label: 'Dt. Validação Inicial')]
     protected $dataini;
 
-    //Data de validade Final
+    #[Campo(label: 'Dt. Validação Final')]
     protected $datafim;
 
-    //Percecntua de desconto
+    #[Campo(label: 'Percentual')]
     protected $percentual;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn:true, auto:true)]
     protected $created_at;
 
-    //Dt. Alteração, nn, auto
+    #[Campo(label: 'Dt. Aleração', nn:true, auto:true)]
     protected $updated_at;
 
     public function getIdDesconto()
@@ -71,11 +75,11 @@ class Desconto
         return $this;
     }
 
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }
-    public function getUpdatedAt()
+    public function getUpdated_At()
     {
         return $this->updated_at;
     }

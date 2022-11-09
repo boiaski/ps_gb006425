@@ -2,49 +2,53 @@
 
 namespace Petshop\Model;
 
-//produtos
-class Produto
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'produtos')]
+class Produto extends DAO
 {
-    //Cód. Produto, pk, nn, auto
+    #[Campo(label: 'Cód. Produto', nn:true, pk:true, auto:true)]
     protected $idProduto;
 
-    //Cód. Marca, nn
+    #[Campo(label: 'Cód. Marca', nn:true)]
     protected $idMarca;
 
-    //Nome do Produto, nn
+    #[Campo(label: 'Nome', nn:true)]
     protected $nome;
 
-    //Tipo de Produto, nn
+    #[Campo(label: 'Tipo', nn:true)]
     protected $tipo;
 
-    //Preço do produto, nn
+    #[Campo(label: 'Preço', nn:true)]
     protected $preco;
 
-    //Quantidade de produtos
+    #[Campo(label: 'Quantidade')]
     protected $quantidade;
 
-    //Largura do Prooduto
+    #[Campo(label: 'Largura')]
     protected $largura;
 
-    //Altura do Prduto
+    #[Campo(label: 'Altura')]
     protected $altura;
 
-    //Profundidade do Produto
+    #[Campo(label: 'Profundidade')]
     protected $profundidade;
 
-    //Peso do Produto
+    #[Campo(label: 'Peso')]
     protected $peso;
 
-    //Descrição do Produto
+    #[Campo(label: 'Descrição')]
     protected $descricao;
 
-    //Especificações do Produto
+    #[Campo(label: 'Espicificações')]
     protected $especificacoes;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn:true, auto:true)]
     protected $created_at;
 
-    //Dt. Alteração, nn, auto
+    #[Campo(label: 'Dt. Aleração', nn:true, auto:true)]
     protected $updated_at;
 
     public function getIdProduto()
@@ -163,11 +167,11 @@ class Produto
         return $this;
     }
 
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }
-    public function getUpdatedAt()
+    public function getUpdated_At()
     {
         return $this->updated_at;
     }

@@ -2,19 +2,23 @@
 
 namespace Petshop\Model;
 
-//estados
-class Estado 
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'estados')]
+class Estado extends DAO
 {
-    //Sigla do estado, pk, nn
+    #[Campo(label: 'UF', nn:true, pk:true, auto:true)]
     protected $uf;
 
-    //Instituto Brasileiro de Geografia e Estatistica, nn
+    #[Campo(label: 'IBGE', nn:true)]
     protected $ibge;
 
-    //Nome do estado, nn
+    #[Campo(label: 'Nome', nn:true)]
     protected $estado;
 
-    //Regiao do estado, nn
+    #[Campo(label: 'Região', nn:true)]
     protected $regiao;
 
     public function getUf()

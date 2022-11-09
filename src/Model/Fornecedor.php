@@ -2,34 +2,38 @@
 
 namespace Petshop\Model;
 
-//fornecedores
-class Fornecedor
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'fornecedores')]
+class Fornecedor extends DAO
 {
-    //Cód. Fornecedor, pk, nn, auto
+    #[Campo(label: 'Cód. Fornecedor', nn:true, pk:true, auto:true)]
     protected $idFornecedor;
 
-    //Razao Social do Fornecedor, nn
+    #[Campo(label: 'Razão Social', nn:true)]
     protected $razaoSocial;
 
-    //Nome Fantasia do Fornecedor, nn
+    #[Campo(label: 'Nome', nn:true)]
     protected $nomeFantasia;
 
-    //Telefone 1 do Fornecedor, nn
+    #[Campo(label: 'Telefone - 1', nn:true)]
     protected $telefone1;
 
-    //Telefone 2 do fornecedor
+    #[Campo(label: 'Telefone - 2')]
     protected $telefone2;
 
-    //Email do Fornecedor, nn
+    #[Campo(label: 'Email', nn:true)]
     protected $email;
 
-    //Contato do Fornecedor
+    #[Campo(label: 'Contato')]
     protected $contato;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn:true, auto:true)]
     protected $created_at;
 
-    //Dt. Alteração, nn, auto
+    #[Campo(label: 'Dt. Aleração', nn:true, auto:true)]
     protected $updated_at;
 
     public function getIdFornecedor()
@@ -97,11 +101,11 @@ class Fornecedor
         return $this;
     }
 
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }
-    public function getUpdatedAt()
+    public function getUpdated_At()
     {
         return $this->updated_at;
     }   

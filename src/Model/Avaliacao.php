@@ -2,28 +2,32 @@
 
 namespace Petshop\Model;
 
-//avaliacoes
-class Avaliacao
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'avaliacoes')]
+class Avaliacao extends DAO
 {
-    //Cód. Avaliacao, pk, nn, auto
+    #[Campo(label: 'Cód. Avaliação', nn:true, pk:true, auto:true)]
     protected $idAvaliacao;
 
-    //Cód. Produto, nn
+    #[Campo(label: 'Cód. Produto', nn:true)]
     protected $idProduto;
 
-    //Cód. Cliente, nn
+    #[Campo(label: 'Cód. Cliente', nn:true)]
     protected $idCliente;
 
-    //Nota do cliente, nn
+    #[Campo(label: 'Nota', nn:true)]
     protected $nota;
 
-    //Comentario do cliente
+    #[Campo(label: 'Comentario')]
     protected $comentario;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn:true, auto:true)]
     protected $created_at;
 
-    //Dt. Alteração, nn, auto
+    #[Campo(label: 'Dt. Aleração', nn:true, auto:true)]
     protected $updated_at;
     
     public function getIdAvaliacao()
@@ -72,11 +76,11 @@ class Avaliacao
         return $this;
     }
 
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }
-    public function getUpdatedAt()
+    public function getUpdated_At()
     {
         return $this->updated_at;
     }

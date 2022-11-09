@@ -2,25 +2,29 @@
 
 namespace Petshop\Model;
 
-//vendas
-class Venda
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'vendas')]
+class Venda extends DAO
 {
-    //Cód. Venda, pk, nn, auto
+    #[Campo(label: 'Cód. Venda', nn:true, pk:true, auto:true)]
     protected $idVenda;
 
-    //Cód. Carrinho, nn
+    #[Campo(label: 'Cód. Carrinho', nn:true)]
     protected $idCarrinho;
 
-    //FormaGPTO, nn
+    #[Campo(label: 'FormaGPTO', nn:true)]
     protected $formaGpto;
 
-    //Informa o status da Venda, nn
+    #[Campo(label: 'Status', nn:true)]
     protected $status;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn:true, auto:true)]
     protected $created_at;
 
-    //Dt. Alteração, nn, auto
+    #[Campo(label: 'Dt. Aleração', nn:true, auto:true)]
     protected $updated_at;
 
     public function getIdVenda()
@@ -58,11 +62,11 @@ class Venda
         return $this;
     }
 
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }
-    public function getUpdatedAt()
+    public function getUpdated_At()
     {
         return $this->updated_at;
     }

@@ -2,31 +2,35 @@
 
 namespace Petshop\Model;
 
-//usuarios
-class Usuario
+use Petshop\Core\Attribute\Campo;
+use Petshop\Core\Attribute\Entidade;
+use Petshop\Core\DAO;
+
+#[Entidade(name: 'usuarios')]
+class Usuario extends DAO
 {
-    //Cód. Usuario, pk, nn, auto
+    #[Campo(label: 'Cód. Usuario', nn:true, pk:true, auto:true)]
     protected $idUsuario;
 
-    //Nome do Usuario, nn
+    #[Campo(label: 'Nome', nn:true)]
     protected $nome;
 
-    //Email do Usuario, nn
+    #[Campo(label: 'Email', nn:true)]
     protected $email;
 
-    //Senha do Usuario, nn
+    #[Campo(label: 'Senha', nn:true)]
     protected $senha;
 
-    //Tipo de Usuario, nn
+    #[Campo(label: 'Tipo', nn:true)]
     protected $tipo;
 
-    //Quantidade de Acessos do Usuario, nn
+    #[Campo(label: 'Quantidade de Acessos', nn:true)]
     protected $qtdacessos;
 
-    //Dt. Criação, nn, auto
+    #[Campo(label: 'Dt. Criação', nn:true, auto:true)]
     protected $created_at;
 
-    //Dt. Alteração, nn, auto
+    #[Campo(label: 'Dt. Aleração', nn:true, auto:true)]
     protected $updated_at;
 
     public function getIdUsuario()
@@ -84,11 +88,11 @@ class Usuario
         return $this;
     }
 
-    public function getCreatedAt()
+    public function getCreated_At()
     {
         return $this->created_at;
     }
-    public function getUpdatedAt()
+    public function getUpdated_At()
     {
         return $this->updated_at;
     }
