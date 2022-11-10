@@ -150,7 +150,7 @@ class DAO
     {
         $where = '';
         if(count($params)) {
-            $where = 'WHERE' . implode(' ? and ' , array_keys($params)) . ' ? ';
+            $where = 'WHERE ' . implode(' ? and ' , array_keys($params)) . ' ? ';
         }
 
         $orderBy = '';
@@ -196,8 +196,68 @@ class DAO
         //VETOR RETORNADO
         $atributos = array_keys($this->getFields());
         foreach($atributos as $atributo) {
-            $this->atributo = $registro[0][strtolower($atributo)];
+            $this->$atributo = $registro[0][strtolower($atributo)];
         }
+
+        return true;
+    }
+
+    /**
+     * Método que, com todos os atributos obrigatórios alimentados
+     * salva os dados no banco de dados, se houver ID informado, então
+     * atualiza um registro, senão, cria
+     *
+     * @return void
+     */
+    public function save() : bool
+    {
+        $nomeDaTabela = $this->getTableName();
+        $nomeCampoChave = $this->getPkName();
+        $valorCampoChave = $this->$nomeCampoChave;
+
+        $campos =[];
+        foreach($this->getFields() as $atributo => $parametros) {
+            if(array_key_exists('auto', $parametros)) {
+                continue;
+            }
+
+            // verificar se o campo atual está nulo e é um not null(nn)
+            if(is_null($this->$atributo) && array_key_exists('nn', $parametros)) {
+                $label = $parametros['label'];
+                throw new Exception("O campo {$label} deve ser preenchido");                
+            }
+
+            $campos[strtolower($atributo)] = $this->$atributo;
+        }
+        
+        // se não tiver valor no atributo do campo chave
+        // será feito um insert, pois não é um registro conhecido
+        if(empty($valorCampoChave)) {
+            $sql = sprintf(
+                'INSERT INTO %s (%s) VALUES (%s)',
+                $nomeDaTabela,
+                implode(', ', array_keys($campos)),
+                trim(str_repeat('?,', count($campos)), ',')
+            );
+
+            DB::query($sql, $campos);
+
+            $this->loadById(DB::getInstance()->lastInsertId());
+
+            return true;
+        }
+
+        $sql = sprintf(
+            'UPDATE %s SET %s WHERE %s = %s',
+            $nomeDaTabela,
+            implode('=?, ', array_keys($campos)) . '=?' ,
+            $nomeCampoChave,
+            $valorCampoChave
+        );
+
+        DB::query($sql, $campos);
+
+        $this->loadById($valorCampoChave);
 
         return true;
     }

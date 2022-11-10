@@ -57,7 +57,7 @@ class DB
             }
             return $st->fetchAll(\PDO::FETCH_ASSOC);
         } catch(\PDOException $e){
-            error_log('Erro PDO: ' . $e->getMessage() . ' - Linha: ' . $e->getLine());
+            error_log('Erro PDO: ' . $e->getMessage() . ' - Linha: ' . $e->getLine() . ' - ' . $sql);
             throw new Exception('Falha ao realizar consulta no banco de dados');
         }
         return [];

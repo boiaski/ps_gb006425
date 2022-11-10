@@ -61,3 +61,126 @@ Stack trace:
 #3 C:\xampp\htdocs\projeto01\public\Index.php(10): Petshop\Core\DAO->loadById(1)
 #4 {main}
   thrown in C:\xampp\htdocs\projeto01\src\Core\DB.php on line 29
+[09-Nov-2022 23:39:37 America/Sao_Paulo] SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+[09-Nov-2022 23:39:37 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: Falha ao realizar a conexão com o servidor, por favor, tente mais tarde in C:\xampp\htdocs\projeto01\src\Core\DB.php:29
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\src\Core\DB.php(46): Petshop\Core\DB::getInstance()
+#1 C:\xampp\htdocs\projeto01\src\Core\DAO.php(171): Petshop\Core\DB::select('SELECT * FROM d...', Array)
+#2 C:\xampp\htdocs\projeto01\src\Core\DAO.php(187): Petshop\Core\DAO->find(Array)
+#3 C:\xampp\htdocs\projeto01\public\Index.php(10): Petshop\Core\DAO->loadById(1)
+#4 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\DB.php on line 29
+[09-Nov-2022 23:44:46 America/Sao_Paulo] Erro PDO: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= '1'  ORDER BY titulo' at line 1 - Linha: 53
+[09-Nov-2022 23:44:46 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: Falha ao realizar consulta no banco de dados in C:\xampp\htdocs\projeto01\src\Core\DB.php:61
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\src\Core\DAO.php(171): Petshop\Core\DB::select('SELECT * FROM d...', Array)
+#1 C:\xampp\htdocs\projeto01\src\Core\DAO.php(187): Petshop\Core\DAO->find(Array)
+#2 C:\xampp\htdocs\projeto01\public\Index.php(10): Petshop\Core\DAO->loadById(1)
+#3 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\DB.php on line 61
+[09-Nov-2022 23:45:54 America/Sao_Paulo] Erro PDO: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= '1'  ORDER BY titulo' at line 1 - Linha: 53
+[09-Nov-2022 23:45:54 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: Falha ao realizar consulta no banco de dados in C:\xampp\htdocs\projeto01\src\Core\DB.php:61
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\src\Core\DAO.php(171): Petshop\Core\DB::select('SELECT * FROM d...', Array)
+#1 C:\xampp\htdocs\projeto01\src\Core\DAO.php(187): Petshop\Core\DAO->find(Array)
+#2 C:\xampp\htdocs\projeto01\public\Index.php(10): Petshop\Core\DAO->loadById(1)
+#3 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\DB.php on line 61
+[09-Nov-2022 23:46:22 America/Sao_Paulo] Erro PDO: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= '1'  ORDER BY titulo' at line 1 - Linha: 53
+[09-Nov-2022 23:46:22 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: Falha ao realizar consulta no banco de dados in C:\xampp\htdocs\projeto01\src\Core\DB.php:61
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\src\Core\DAO.php(171): Petshop\Core\DB::select('SELECT * FROM d...', Array)
+#1 C:\xampp\htdocs\projeto01\src\Core\DAO.php(187): Petshop\Core\DAO->find(Array)
+#2 C:\xampp\htdocs\projeto01\public\Index.php(10): Petshop\Core\DAO->loadById(1)
+#3 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\DB.php on line 61
+[09-Nov-2022 23:49:07 America/Sao_Paulo] Erro PDO: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= '1'  ORDER BY titulo' at line 1 - Linha: 53
+[09-Nov-2022 23:49:07 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: Falha ao realizar consulta no banco de dados in C:\xampp\htdocs\projeto01\src\Core\DB.php:61
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\src\Core\DAO.php(171): Petshop\Core\DB::select('SELECT * FROM d...', Array)
+#1 C:\xampp\htdocs\projeto01\src\Core\DAO.php(187): Petshop\Core\DAO->find(Array)
+#2 C:\xampp\htdocs\projeto01\public\Index.php(10): Petshop\Core\DAO->loadById(1)
+#3 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\DB.php on line 61
+[09-Nov-2022 23:50:45 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: O atributo ttulo não tem 
+            método 'set' associado in C:\xampp\htdocs\projeto01\src\Core\DAO.php:50
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\public\Index.php(10): Petshop\Core\DAO->__set('ttulo', 'Titulo da nova ...')
+#1 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\DAO.php on line 50
+[10-Nov-2022 00:19:35 America/Sao_Paulo] Erro PDO: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= '2'  ORDER BY titulo' at line 1 - Linha: 53
+[10-Nov-2022 00:19:35 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: Falha ao realizar consulta no banco de dados in C:\xampp\htdocs\projeto01\src\Core\DB.php:61
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\src\Core\DAO.php(171): Petshop\Core\DB::select('SELECT * FROM d...', Array)
+#1 C:\xampp\htdocs\projeto01\src\Core\DAO.php(187): Petshop\Core\DAO->find(Array)
+#2 C:\xampp\htdocs\projeto01\src\Core\DAO.php(245): Petshop\Core\DAO->loadById('2')
+#3 C:\xampp\htdocs\projeto01\public\Index.php(12): Petshop\Core\DAO->save()
+#4 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\DB.php on line 61
+[10-Nov-2022 00:22:14 America/Sao_Paulo] Erro PDO: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= '3'  ORDER BY titulo' at line 1 - Linha: 53
+[10-Nov-2022 00:22:14 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: Falha ao realizar consulta no banco de dados in C:\xampp\htdocs\projeto01\src\Core\DB.php:61
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\src\Core\DAO.php(171): Petshop\Core\DB::select('SELECT * FROM d...', Array)
+#1 C:\xampp\htdocs\projeto01\src\Core\DAO.php(187): Petshop\Core\DAO->find(Array)
+#2 C:\xampp\htdocs\projeto01\src\Core\DAO.php(245): Petshop\Core\DAO->loadById('3')
+#3 C:\xampp\htdocs\projeto01\public\Index.php(12): Petshop\Core\DAO->save()
+#4 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\DB.php on line 61
+[10-Nov-2022 00:25:46 America/Sao_Paulo] Erro PDO: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= '4'  ORDER BY titulo' at line 1 - Linha: 53
+[10-Nov-2022 00:25:46 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: Falha ao realizar consulta no banco de dados in C:\xampp\htdocs\projeto01\src\Core\DB.php:61
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\src\Core\DAO.php(171): Petshop\Core\DB::select('SELECT * FROM d...', Array)
+#1 C:\xampp\htdocs\projeto01\src\Core\DAO.php(187): Petshop\Core\DAO->find(Array)
+#2 C:\xampp\htdocs\projeto01\src\Core\DAO.php(245): Petshop\Core\DAO->loadById('4')
+#3 C:\xampp\htdocs\projeto01\public\Index.php(12): Petshop\Core\DAO->save()
+#4 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\DB.php on line 61
+[10-Nov-2022 00:26:45 America/Sao_Paulo] Erro PDO: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= '5'  ORDER BY titulo' at line 1 - Linha: 53
+[10-Nov-2022 00:26:45 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: Falha ao realizar consulta no banco de dados in C:\xampp\htdocs\projeto01\src\Core\DB.php:61
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\src\Core\DAO.php(171): Petshop\Core\DB::select('SELECT * FROM d...', Array)
+#1 C:\xampp\htdocs\projeto01\src\Core\DAO.php(187): Petshop\Core\DAO->find(Array)
+#2 C:\xampp\htdocs\projeto01\src\Core\DAO.php(245): Petshop\Core\DAO->loadById('5')
+#3 C:\xampp\htdocs\projeto01\public\Index.php(12): Petshop\Core\DAO->save()
+#4 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\DB.php on line 61
+[10-Nov-2022 19:15:54 America/Sao_Paulo] Erro PDO: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= '6'  ORDER BY titulo' at line 1 - Linha: 53
+[10-Nov-2022 19:15:54 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: Falha ao realizar consulta no banco de dados in C:\xampp\htdocs\projeto01\src\Core\DB.php:61
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\src\Core\DAO.php(173): Petshop\Core\DB::select('SELECT * FROM d...', Array)
+#1 C:\xampp\htdocs\projeto01\src\Core\DAO.php(189): Petshop\Core\DAO->find(Array)
+#2 C:\xampp\htdocs\projeto01\src\Core\DAO.php(247): Petshop\Core\DAO->loadById('6')
+#3 C:\xampp\htdocs\projeto01\public\Index.php(12): Petshop\Core\DAO->save()
+#4 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\DB.php on line 61
+[10-Nov-2022 19:18:48 America/Sao_Paulo] Erro PDO: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= '6'  ORDER BY titulo' at line 1 - Linha: 53
+[10-Nov-2022 19:18:48 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: Falha ao realizar consulta no banco de dados in C:\xampp\htdocs\projeto01\src\Core\DB.php:61
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\src\Core\DAO.php(171): Petshop\Core\DB::select('SELECT * FROM d...', Array)
+#1 C:\xampp\htdocs\projeto01\src\Core\DAO.php(187): Petshop\Core\DAO->find(Array)
+#2 C:\xampp\htdocs\projeto01\public\Index.php(10): Petshop\Core\DAO->loadById(6)
+#3 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\DB.php on line 61
+[10-Nov-2022 19:20:44 America/Sao_Paulo] Erro PDO: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= '6'  ORDER BY titulo' at line 1 - Linha: 53
+[10-Nov-2022 19:20:44 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: Falha ao realizar consulta no banco de dados in C:\xampp\htdocs\projeto01\src\Core\DB.php:61
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\src\Core\DAO.php(171): Petshop\Core\DB::select('SELECT * FROM d...', Array)
+#1 C:\xampp\htdocs\projeto01\src\Core\DAO.php(187): Petshop\Core\DAO->find(Array)
+#2 C:\xampp\htdocs\projeto01\public\Index.php(10): Petshop\Core\DAO->loadById(6)
+#3 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\DB.php on line 61
+[10-Nov-2022 19:21:44 America/Sao_Paulo] Erro PDO: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= '6'  ORDER BY titulo' at line 1 - Linha: 53 - SELECT * FROM dicas WHERE iddica= ?  ORDER BY titulo
+[10-Nov-2022 19:21:44 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: Falha ao realizar consulta no banco de dados in C:\xampp\htdocs\projeto01\src\Core\DB.php:61
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\src\Core\DAO.php(171): Petshop\Core\DB::select('SELECT * FROM d...', Array)
+#1 C:\xampp\htdocs\projeto01\src\Core\DAO.php(187): Petshop\Core\DAO->find(Array)
+#2 C:\xampp\htdocs\projeto01\public\Index.php(10): Petshop\Core\DAO->loadById(6)
+#3 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\DB.php on line 61
+[10-Nov-2022 19:23:42 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: O atributo atributo não tem 
+            método 'set' associado in C:\xampp\htdocs\projeto01\src\Core\DAO.php:50
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\src\Core\DAO.php(199): Petshop\Core\DAO->__set('atributo', 6)
+#1 C:\xampp\htdocs\projeto01\public\Index.php(10): Petshop\Core\DAO->loadById(6)
+#2 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\DAO.php on line 50
