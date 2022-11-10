@@ -52,3 +52,12 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in C:\xampp\htdocs\projeto01\public\Index.php on line 8
+[09-Nov-2022 23:12:48 America/Sao_Paulo] SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+[09-Nov-2022 23:12:48 America/Sao_Paulo] PHP Fatal error:  Uncaught Petshop\Core\Exception: Falha ao realizar a conexão com o servidor, por favor, tente mais tarde in C:\xampp\htdocs\projeto01\src\Core\DB.php:29
+Stack trace:
+#0 C:\xampp\htdocs\projeto01\src\Core\DB.php(46): Petshop\Core\DB::getInstance()
+#1 C:\xampp\htdocs\projeto01\src\Core\DAO.php(171): Petshop\Core\DB::select('SELECT * FROM d...', Array)
+#2 C:\xampp\htdocs\projeto01\src\Core\DAO.php(187): Petshop\Core\DAO->find(Array)
+#3 C:\xampp\htdocs\projeto01\public\Index.php(10): Petshop\Core\DAO->loadById(1)
+#4 {main}
+  thrown in C:\xampp\htdocs\projeto01\src\Core\DB.php on line 29
