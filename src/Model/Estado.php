@@ -15,7 +15,7 @@ class Estado extends DAO
     #[Campo(label: 'IBGE', nn:true)]
     protected $ibge;
 
-    #[Campo(label: 'Nome', nn:true)]
+    #[Campo(label: 'Estado', nn:true, order:true)]
     protected $estado;
 
     #[Campo(label: 'Região', nn:true)]

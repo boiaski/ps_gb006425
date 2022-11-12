@@ -2,9 +2,11 @@
 
 namespace Petshop\Model;
 
+use Exception;
 use Petshop\Core\Attribute\Campo;
 use Petshop\Core\Attribute\Entidade;
 use Petshop\Core\DAO;
+use Respect\Validation\Validator as v;
 
 #[Entidade(name: 'clientes')]
 class Cliente extends DAO
@@ -44,6 +46,10 @@ class Cliente extends DAO
     }
     public function setTipo($tipo): self
     {
+        $tipo = strtoupper(trim($tipo));
+        if(!in_array($tipo, ['F', 'J'])) {
+            throw new Exception('O tipo de pessoa não está definido corretamente (F/J)');
+        }
         $this->tipo = $tipo;
         return $this;
     }
@@ -54,6 +60,20 @@ class Cliente extends DAO
     }
     public function setCpfCnpj($cpfCnpj): self
     {
+        if(!in_array($this->tipo, ['F', 'J'])) {
+            throw new Exception('O tipo de pessoa (F/J) precisa ser defnifo antes do documento');
+        }
+
+        if($this->tipo == 'F') {
+            $docValido = v::cpf()->validate($cpfCnpj);
+        } else {
+            $docValido = v::cnpj()->validate($cpfCnpj);
+        }
+
+        if(!$docValido) {
+            throw new Exception('O documento informado é inválido');
+        }
+
         $this->cpfCnpj = $cpfCnpj;
         return $this;
     }
@@ -74,6 +94,13 @@ class Cliente extends DAO
     }
     public function setEmail($email): self
     {
+        $email = strtolower(trim($email));
+
+        $emailValido = v::email()->validate($email);
+        if(!$emailValido) {
+            throw new Exception('O e-mail informado é inválido');
+        }
+
         $this->email = $email;
         return $this;
     }
@@ -84,6 +111,8 @@ class Cliente extends DAO
     }
     public function setSenha($senha): self
     {
+        $hashDaSenha = hash_hmac('md5', $senha, SALT_SENHA);
+        $senha = password_hash($hashDaSenha, PASSWORD_DEFAULT);
         $this->senha = $senha;
         return $this;
     }
