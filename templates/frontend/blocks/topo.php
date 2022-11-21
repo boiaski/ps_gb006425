@@ -55,7 +55,7 @@
             </div>
             <div class="topo-site-inferior-fone col-4 d-flex align-items-center justify-content-end">
                 <i class="bi bi-headset pe-1"></i>
-                <span>: (55) 3537-9212</span>
+                <span><?= $telefone1??''?></span>
             </div>
         </div>
     </div>
