@@ -189,14 +189,14 @@ class Empresa extends DAO
     {
         return $this->telefone;
     }
-    public function setTelefone(string $telefone): self
+    public function setTelefone(string $telefone1): self
     {
-        $telefone = trim($telefone);
-        $tipoValido = v::phone()->validate($telefone);
+        $telefone1 = trim($telefone1);
+        $tipoValido = v::phone()->validate($telefone1);
         if(!$tipoValido) {
             throw new Exception('O tipo informado no campo Telefone é inválido');
         }
-        $this->telefone = $telefone;
+        $this->telefone = $telefone1;
         return $this;
     }
 
