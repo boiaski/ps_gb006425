@@ -2,7 +2,7 @@
 
 namespace Petshop\Model;
 
-use Exception;
+use Petshop\Core\Exception;
 use Petshop\Core\Attribute\Campo;
 use Petshop\Core\Attribute\Entidade;
 use Petshop\Core\DAO;

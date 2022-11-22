@@ -2,10 +2,10 @@
 
 namespace Petshop\Model;
 
-use Exception;
 use Petshop\Core\Attribute\Campo;
 use Petshop\Core\Attribute\Entidade;
 use Petshop\Core\DAO;
+use Petshop\Core\Exception;
 use Respect\Validation\Validator as v;
 
 #[Entidade(name: 'clientes')]
