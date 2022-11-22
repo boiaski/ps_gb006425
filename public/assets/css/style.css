@@ -1,3 +1,5 @@
+/* TOPO */
+
 .topo-site {
     background-color: #231f20;
     color: #efe6dd;
@@ -24,6 +26,7 @@
     width: 3em;
 }
 
+/* RODAPÉ */
 
 .rodape-site{
     background-color: #efe6dd;
@@ -41,4 +44,10 @@
 }
 .rodape-site .info-matriz {
     font-size: .8em;
+}
+
+/* classes de apoio */
+
+.pg-login .btn-conta {
+    margin-top: 5em;
 }
