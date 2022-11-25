@@ -44,3 +44,10 @@ function redireciona(string $destino, string $tipoMsg='', string $mensagem='')
     header('location:' . $destino);
     exit;
 }
+
+function acessoRestrito()
+{
+    if(empty($_SESSION['cliente'])) {
+        redireciona('/login', 'danger', 'Faça o logon para continuar');
+    }
+}
