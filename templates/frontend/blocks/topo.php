@@ -1,3 +1,29 @@
+<?php
+    if(empty($cliente)) {
+        $opcaoLogin = <<<HTML
+            <a href="/login" title="Entrar/Cadastrar" class="d-flex align-items-center lh-1">
+                <i class="bi bi-person fs-3 pe-2"></i>
+                <span>Entrar<br>Cadastre-se</span>
+            </a>
+        HTML;
+    } else {
+        $opcaoLogin = <<<HTML
+            <div>
+                <i class="bi bi-person fs-3 pe-1"></i>
+                <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    Olá <strong>{$cliente['prinome']}</strong>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark border-light">
+                    <li><a class="dropdown-item" href="/meus-dados">Minha Conta</a></li>
+                    <li><a class="dropdown-item" href="/meus-pedidos">Pedidos</a></li>
+                    <li><hr class="dropdown-divider border-light"></li>
+                    <li><a class="dropdown-item" href="/logout">Sair</a></li>
+                </ul>
+            </div>
+        HTML;
+    }
+?>
+
 <!-- hack para o topo não "comer" o conteúdo da página -->
 <div style="margin-top: 5.5em">&nbsp;</div>
 
@@ -15,12 +41,9 @@
                     <button type="submit" class="btn-busca"><i class="bi bi-search"></i></button>
                 </form>
             </div>
-            <div class="topo-site-opcoes col-4 row text-center align-items-center">
+            <div class="topo-site-opcoes col-4 row align-items-center">
                 <div class="topo-site-opcoes-usr col-8">
-                    <a href="/login" title="Entrar/Cadastrar" class="d-flex align-items-center">
-                        <i class="bi bi-person fs-3 pe-2"></i>
-                        <span>Entre ou cadastre-se</span>
-                    </a>
+                    <?=$opcaoLogin?>
                 </div>
                 <div class="col-4 d-flex justify-content-between">
                     <a href="/favoritos" title="Favoritos" class="px-3">
