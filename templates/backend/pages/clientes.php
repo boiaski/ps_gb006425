@@ -1,1 +1,1 @@
-dale gremio
+<?=$tabela??''?>
