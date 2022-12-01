@@ -111,6 +111,10 @@ class Cliente extends DAO
     }
     public function setSenha($senha): self
     {
+        if($this->senha && !$senha) {
+            return $this;
+        }
+
         if (strlen($senha) < 5) {
             throw new Exception('O comprimento da senha é inválido, digite ao menos cinco caracteres');
         }
