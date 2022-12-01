@@ -96,6 +96,14 @@
                         </div>
                     HTML;
                 break;
+            case 'readonly':
+                echo <<<HTML
+                        <div class="{$f['class']}">
+                            <label class="form-label">{$f['label']}{$f['txt_required']}</label>
+                            <input type="text" readonly class="form-control-plaintext border-bottom bg-light ps-2" value="{$postValue}">
+                        </div>
+                    HTML;
+                break;
         }
     }
 ?>
