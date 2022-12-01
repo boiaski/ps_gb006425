@@ -43,9 +43,7 @@ class App
      */
     private static function registraRotasDoFrontEnd()
     {
-        /**
-         * GET
-         */
+        /** GET */
         self::$router->get('/', '\Petshop\Controller\HomeController@index');
         self::$router->get('/login', '\Petshop\Controller\LoginController@login');
         self::$router->get('/logout', '\Petshop\Controller\LoginController@logout');
@@ -53,9 +51,7 @@ class App
         self::$router->get('/meus-dados', '\Petshop\Controller\MeusDadosController@meusDados');
         self::$router->get('/fale-conosco', '\Petshop\Controller\FaleConoscoController@faleConosco');
         
-        /**
-         * SET
-         */
+        /** SET */
         self::$router->post('/login', '\Petshop\Controller\LoginController@postLogin');
         self::$router->post('/cadastro', '\Petshop\Controller\CadastroController@postCadastro');
         self::$router->post('/fale-conosco', '\Petshop\Controller\FaleConoscoController@postFaleConosco');
@@ -69,8 +65,13 @@ class App
     private static function registraRotasDoBackEnd()
     {
         self::$router->mount('/admin', function() {
+            /** GET */
             self::$router->get('/', '\Petshop\Controller\AdminDashboardController@index');
             self::$router->get('/clientes', '\Petshop\Controller\AdminClienteController@listar');
+            self::$router->get('/clientes/{valor}', '\Petshop\Controller\AdminClienteController@form');
+
+            /** SET */
+            self::$router->post('/clientes/{valor}', '\Petshop\Controller\AdminClienteController@postForm');
         });
     }
 
