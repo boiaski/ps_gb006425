@@ -60,14 +60,25 @@
                         <!-- EXEMPLO DE TÍTULO DO GRUPO DE LINKS NO MENU -->
                         <div class="sb-sidenav-menu-heading">Menu</div>
                         <!-- EXEMPLO DE LINK NO MENU -->
-                        <a class="nav-link" href="/admin">
+                        <a class="nav-link" href="/admin/dashboard">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt fs-5"></i></div>
                             Dashboard
                         </a>
-
+                        <a class="nav-link" href="/admin/usuarios">
+                            <div class="sb-nav-link-icon"><i class="bi bi-person-fill-lock fs-5"></i></div>
+                            Usuários
+                        </a>
                         <a class="nav-link" href="/admin/clientes">
                             <div class="sb-nav-link-icon"><i class="bi bi-people-fill fs-5"></i></div>
                             Clientes
+                        </a>
+                        <a class="nav-link" href="/admin/dicas">
+                            <div class="sb-nav-link-icon"><i class="bi bi-lightbulb-fill fs-5"></i></div>
+                            Dicas
+                        </a>
+                        <a class="nav-link" href="/admin/marcas">
+                            <div class="sb-nav-link-icon"><i class="bi bi-bookmarks-fill fs-5"></i></div>
+                            Marcas
                         </a>
                         <a class="nav-link" href="/admin/categorias">
                             <div class="sb-nav-link-icon"><i class="bi bi-card-list fs-5"></i></div>
