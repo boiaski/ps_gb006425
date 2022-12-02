@@ -5,12 +5,20 @@ namespace Petshop\Model;
 use Petshop\Core\Attribute\Campo;
 use Petshop\Core\Attribute\Entidade;
 use Petshop\Core\DAO;
+use Petshop\Core\Exception;
+use Respect\Validation\Validator as v;
 
 #[Entidade(name: 'usuarios')]
 class Usuario extends DAO
 {
-    #[Campo(label: 'Cód. Usuario', nn:true, pk:true, auto:true)]
+    #[Campo(label: 'Cód. Usuário', nn:true, pk:true, auto:true)]
     protected $idUsuario;
+
+    #[Campo(label: 'Tipo', nn:true)]
+    protected $tipo;
+
+    #[Campo(label: 'Qtd. Acessos', nn:true)]
+    protected $qtdAcessos;
 
     #[Campo(label: 'Nome', nn:true)]
     protected $nome;
@@ -21,12 +29,6 @@ class Usuario extends DAO
     #[Campo(label: 'Senha', nn:true)]
     protected $senha;
 
-    #[Campo(label: 'Tipo', nn:true)]
-    protected $tipo;
-
-    #[Campo(label: 'Quantidade de Acessos', nn:true)]
-    protected $qtdacessos;
-
     #[Campo(label: 'Dt. Criação', nn:true, auto:true)]
     protected $created_at;
 
@@ -36,6 +38,30 @@ class Usuario extends DAO
     public function getIdUsuario()
     {
         return $this->idUsuario;
+    }
+
+    public function getTipo()
+    {
+        return $this->tipo;
+    }
+    public function setTipo(string $tipo): self
+    {
+        $tipo = trim($tipo);
+        if(!in_array($tipo, ['Gestor', 'Vendedor'])) {
+            throw new Exception('O tipo de pessoa não está definido corretamente');
+        }
+        $this->tipo = $tipo;
+        return $this;
+    }
+
+    public function getQtdAcessos()
+    {
+        return $this->qtdAcessos;
+    }
+    public function setQtdAcessos(int $qtdAcessos): self
+    {
+        $this->qtdAcessos = $qtdAcessos;
+        return $this;
     }
 
     public function getNome()
@@ -54,6 +80,13 @@ class Usuario extends DAO
     }
     public function setEmail($email): self
     {
+        $email = strtolower(trim($email));
+
+        $emailValido = v::email()->validate($email);
+        if(!$emailValido) {
+            throw new Exception('O e-mail informado é inválido');
+        }
+
         $this->email = $email;
         return $this;
     }
@@ -64,27 +97,16 @@ class Usuario extends DAO
     }
     public function setSenha($senha): self
     {
+        if($this->senha && !$senha) {
+            return $this;
+        }
+
+        if (strlen($senha) < 5) {
+            throw new Exception('O comprimento da senha é inválido, digite ao menos cinco caracteres');
+        }
+        $hashDaSenha = hash_hmac('md5', $senha, SALT_SENHA);
+        $senha = password_hash($hashDaSenha, PASSWORD_DEFAULT);
         $this->senha = $senha;
-        return $this;
-    }
-
-    public function getTipo()
-    {
-        return $this->tipo;
-    }
-    public function setTipo($tipo): self
-    {
-        $this->tipo = $tipo;
-        return $this;
-    }
-
-    public function getQtdacessos()
-    {
-        return $this->qtdacessos;
-    }
-    public function setQtdacessos($qtdacessos): self
-    {
-        $this->qtdacessos = $qtdacessos;
         return $this;
     }
 

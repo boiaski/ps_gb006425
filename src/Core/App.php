@@ -67,11 +67,16 @@ class App
         self::$router->mount('/admin', function() {
             /** GET */
             self::$router->get('/dashboard', '\Petshop\Controller\AdminDashboardController@index');
+
             self::$router->get('/clientes', '\Petshop\Controller\AdminClienteController@listar');
             self::$router->get('/clientes/{valor}', '\Petshop\Controller\AdminClienteController@form');
+            
+            self::$router->get('/usuarios', '\Petshop\Controller\AdminUsuarioController@listar');
+            self::$router->get('/usuarios/{valor}', '\Petshop\Controller\AdminUsuarioController@form');
 
             /** SET */
             self::$router->post('/clientes/{valor}', '\Petshop\Controller\AdminClienteController@postForm');
+            self::$router->post('/usuarios/{valor}', '\Petshop\Controller\AdminUsuarioController@postForm');
         });
     }
 
