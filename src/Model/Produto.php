@@ -5,6 +5,7 @@ namespace Petshop\Model;
 use Petshop\Core\Attribute\Campo;
 use Petshop\Core\Attribute\Entidade;
 use Petshop\Core\DAO;
+use Petshop\Core\Exception;
 
 #[Entidade(name: 'produtos')]
 class Produto extends DAO
@@ -12,10 +13,10 @@ class Produto extends DAO
     #[Campo(label: 'Cód. Produto', nn:true, pk:true, auto:true)]
     protected $idProduto;
 
-    #[Campo(label: 'Cód. Marca', nn:true)]
+    #[Campo(label: 'Cód. Marca', nn:true, fk:true)]
     protected $idMarca;
 
-    #[Campo(label: 'Nome', nn:true)]
+    #[Campo(label: 'Produto', nn:true, order:true)]
     protected $nome;
 
     #[Campo(label: 'Tipo', nn:true)]
@@ -62,6 +63,10 @@ class Produto extends DAO
     }
     public function setIdMarca($idMarca): self
     {
+        $objMarca = new Marca;
+        if(!$objMarca->loadById($idMarca)) {
+            throw new Exception('A marca informada é inválida');
+        }
         $this->idMarca = $idMarca;
         return $this;
     }
@@ -73,6 +78,10 @@ class Produto extends DAO
 
     public function setNome($nome): self
     {
+        $nome = trim($nome);
+        if(strlen($nome) < 3) {
+            throw new Exception('Nome inválido para o produto');
+        }
         $this->nome = $nome;
         return $this;
     }
@@ -83,6 +92,15 @@ class Produto extends DAO
     }
     public function setTipo($tipo): self
     {
+        $tiposPermitidos = [
+            'Ração',
+            'Brinquedo',
+            'Medicamento',
+            'Higiene & Beleza'
+        ];
+        if(!in_array($tipo, $tiposPermitidos)) {
+            throw new Exception('Tipo inválido para o produto');
+        }
         $this->tipo = $tipo;
         return $this;
     }
@@ -93,6 +111,9 @@ class Produto extends DAO
     }
     public function setPreco($preco): self
     {
+        if(!is_numeric($preco) || $preco < 0) {
+            throw new Exception('Preço inválido para o produto');
+        }
         $this->preco = $preco;
         return $this;
     }
@@ -103,6 +124,9 @@ class Produto extends DAO
     }
     public function setQuantidade($quantidade): self
     {
+        if(!is_numeric($quantidade) || $quantidade < 0) {
+            throw new Exception('Quantidade inválida para o produto');
+        }
         $this->quantidade = $quantidade;
         return $this;
     }
@@ -113,6 +137,9 @@ class Produto extends DAO
     }
     public function setLargura($largura): self
     {
+        if(!is_numeric($largura) || $largura < 0) {
+            throw new Exception('Largura inválida para o produto');
+        }
         $this->largura = $largura;
         return $this;
     }
@@ -123,6 +150,9 @@ class Produto extends DAO
     }
     public function setAltura($altura): self
     {
+        if(!is_numeric($altura) || $altura < 0) {
+            throw new Exception('Altura inválida para o produto');
+        }
         $this->altura = $altura;
         return $this;
     }
@@ -133,6 +163,9 @@ class Produto extends DAO
     }
     public function setProfundidade($profundidade): self
     {
+        if(!is_numeric($profundidade) || $profundidade < 0) {
+            throw new Exception('Profundidade inválida para o produto');
+        }
         $this->profundidade = $profundidade;
         return $this;
     }
@@ -143,6 +176,9 @@ class Produto extends DAO
     }
     public function setPeso($peso): self
     {
+        if(!is_numeric($peso) || $peso < 0) {
+            throw new Exception('Peso inválido para o produto');
+        }
         $this->peso = $peso;
         return $this;
     }
@@ -153,6 +189,15 @@ class Produto extends DAO
     }
     public function setDescricao($descricao): self
     {
+        $descricao = trim($descricao);
+        if(!$descricao) {
+            return $this;
+        }
+
+        $descricao = trim($descricao);
+        if(strlen($descricao) < 10) {
+            throw new Exception('Descrição inválida para o produto');
+        }
         $this->descricao = $descricao;
         return $this;
     }
@@ -163,6 +208,15 @@ class Produto extends DAO
     }
     public function setEspecificacoes($especificacoes): self
     {
+        $especificacoes = trim($especificacoes);
+        if(!$especificacoes) {
+            return $this;
+        }
+
+        $especificacoes = trim($especificacoes);
+        if(strlen($especificacoes) < 10) {
+            throw new Exception('Descrição inválida para o produto');
+        }
         $this->especificacoes = $especificacoes;
         return $this;
     }
