@@ -137,7 +137,9 @@ class Produto extends DAO
     }
     public function setLargura($largura): self
     {
-        if(!is_numeric($largura) || $largura < 0) {
+        if($largura==''){
+            $this->largura = null;
+        } else if(!is_numeric($largura) || $largura < 0) {
             throw new Exception('Largura inválida para o produto');
         }
         $this->largura = $largura;
@@ -150,7 +152,9 @@ class Produto extends DAO
     }
     public function setAltura($altura): self
     {
-        if(!is_numeric($altura) || $altura < 0) {
+        if($altura==''){
+            $this->altura = null;
+        } else if(!is_numeric($altura) || $altura < 0) {
             throw new Exception('Altura inválida para o produto');
         }
         $this->altura = $altura;
@@ -163,7 +167,9 @@ class Produto extends DAO
     }
     public function setProfundidade($profundidade): self
     {
-        if(!is_numeric($profundidade) || $profundidade < 0) {
+        if($profundidade ==''){
+            $this->profundidade = null;
+        } else if(!is_numeric($profundidade) || $profundidade < 0) {
             throw new Exception('Profundidade inválida para o produto');
         }
         $this->profundidade = $profundidade;
@@ -176,7 +182,9 @@ class Produto extends DAO
     }
     public function setPeso($peso): self
     {
-        if(!is_numeric($peso) || $peso < 0) {
+        if($peso ==''){
+            $this->peso = null;
+        } else if(!is_numeric($peso) || $peso < 0) {
             throw new Exception('Peso inválido para o produto');
         }
         $this->peso = $peso;
@@ -190,12 +198,10 @@ class Produto extends DAO
     public function setDescricao($descricao): self
     {
         $descricao = trim($descricao);
-        if(!$descricao) {
-            return $this;
-        }
 
-        $descricao = trim($descricao);
-        if(strlen($descricao) < 10) {
+        if($descricao ==''){
+            $this->descricao = null;
+        } else if(strlen($descricao) < 10) {
             throw new Exception('Descrição inválida para o produto');
         }
         $this->descricao = $descricao;
@@ -209,12 +215,10 @@ class Produto extends DAO
     public function setEspecificacoes($especificacoes): self
     {
         $especificacoes = trim($especificacoes);
-        if(!$especificacoes) {
-            return $this;
-        }
 
-        $especificacoes = trim($especificacoes);
-        if(strlen($especificacoes) < 10) {
+        if($especificacoes ==''){
+            $this->especificacoes = null;
+        } else if(strlen($especificacoes) < 10) {
             throw new Exception('Descrição inválida para o produto');
         }
         $this->especificacoes = $especificacoes;
