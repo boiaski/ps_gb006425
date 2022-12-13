@@ -50,6 +50,7 @@ class App
         self::$router->get('/cadastro', '\Petshop\Controller\CadastroController@cadastro');
         self::$router->get('/meus-dados', '\Petshop\Controller\MeusDadosController@meusDados');
         self::$router->get('/fale-conosco', '\Petshop\Controller\FaleConoscoController@faleConosco');
+        self::$router->get('/nossas-lojas', '\Petshop\Controller\NossasLojasController@nossasLojas');
         
         /** SET */
         self::$router->post('/login', '\Petshop\Controller\LoginController@postLogin');
@@ -74,17 +75,35 @@ class App
             /** GET */
             self::$router->get('/', '\Petshop\Controller\AdminLoginController@login');
             self::$router->get('/dashboard', '\Petshop\Controller\AdminDashboardController@index');
+            self::$router->post('/', '\Petshop\Controller\AdminLoginController@postLogin');
             
             self::$router->get('/clientes', '\Petshop\Controller\AdminClienteController@listar');
             self::$router->get('/clientes/{valor}', '\Petshop\Controller\AdminClienteController@form');
+            self::$router->post('/clientes/{valor}', '\Petshop\Controller\AdminClienteController@postForm');
             
             self::$router->get('/usuarios', '\Petshop\Controller\AdminUsuarioController@listar');
             self::$router->get('/usuarios/{valor}', '\Petshop\Controller\AdminUsuarioController@form');
-            
-            /** SET */
-            self::$router->post('/', '\Petshop\Controller\AdminLoginController@postLogin');
-            self::$router->post('/clientes/{valor}', '\Petshop\Controller\AdminClienteController@postForm');
             self::$router->post('/usuarios/{valor}', '\Petshop\Controller\AdminUsuarioController@postForm');
+
+            self::$router->get('/dicas', '\Petshop\Controller\AdminDicaController@listar');
+            self::$router->get('/dicas/{valor}', '\Petshop\Controller\AdminDicaController@form');
+            self::$router->post('/dicas/{valor}', '\Petshop\Controller\AdminDicaController@postForm');
+
+            self::$router->get('/marcas', '\Petshop\Controller\AdminMarcaController@listar');
+            self::$router->get('/marcas/{valor}', '\Petshop\Controller\AdminMarcaController@form');
+            self::$router->post('/marcas/{valor}', '\Petshop\Controller\AdminMarcaController@postForm');
+
+            self::$router->get('/categorias', '\Petshop\Controller\AdminCategoriaController@listar');
+            self::$router->get('/categorias/{valor}', '\Petshop\Controller\AdminCategoriaController@form');
+            self::$router->post('/categorias/{valor}', '\Petshop\Controller\AdminCategoriaController@postForm');
+
+            self::$router->get('/produtos', '\Petshop\Controller\AdminProdutoController@listar');
+            self::$router->get('/produtos/{valor}', '\Petshop\Controller\AdminProdutoController@form');
+            self::$router->post('/produtos/{valor}', '\Petshop\Controller\AdminProdutoController@postForm');
+
+            self::$router->get('/empresas', '\Petshop\Controller\AdminEmpresaController@listar');
+            self::$router->get('/empresas/{valor}', '\Petshop\Controller\AdminEmpresaController@form');
+            self::$router->post('/empresas/{valor}', '\Petshop\Controller\AdminEmpresaController@postForm');
         });
     }
 

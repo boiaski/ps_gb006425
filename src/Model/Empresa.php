@@ -42,7 +42,7 @@ class Empresa extends DAO
     protected $numero;
 
     #[Campo(label: 'Telefone', nn:true)]
-    protected $telefone;
+    protected $telefone1;
 
     #[Campo(label: 'Telefone - 2')]
     protected $telefone2;
@@ -161,6 +161,9 @@ class Empresa extends DAO
     }
     public function setRua($rua): self
     {
+        if($rua==''){
+            $this->rua = null;
+        }
         $this->rua = $rua;
         return $this;
     }
@@ -171,6 +174,9 @@ class Empresa extends DAO
     }
     public function setBairro(string $bairro): self
     {
+        if($bairro==''){
+            $this->bairro = null;
+        }
         $this->bairro = $bairro;
         return $this;
     }
@@ -181,22 +187,25 @@ class Empresa extends DAO
     }
     public function setNumero(string $numero): self
     {
+        if($numero==''){
+            $this->numero = null;
+        }
         $this->numero = $numero;
         return $this;
     }
 
-    public function getTelefone()
+    public function getTelefone1()
     {
-        return $this->telefone;
+        return $this->telefone1;
     }
-    public function setTelefone(string $telefone1): self
+    public function setTelefone1(string $telefone1): self
     {
         $telefone1 = trim($telefone1);
         $tipoValido = v::phone()->validate($telefone1);
         if(!$tipoValido) {
             throw new Exception('O tipo informado no campo Telefone é inválido');
         }
-        $this->telefone = $telefone1;
+        $this->telefone1 = $telefone1;
         return $this;
     }
 
@@ -208,7 +217,9 @@ class Empresa extends DAO
     {
         $telefone2 = trim($telefone2);
         $tipoValido = v::phone()->validate($telefone2);
-        if(!$tipoValido) {
+        if($telefone2==''){
+            $this->telefone2 = null;
+        } else if(!$tipoValido) {
             throw new Exception('O tipo informado no campo Telefone 02 é inválido');
         }
         $this->telefone2 = $telefone2;
@@ -223,7 +234,9 @@ class Empresa extends DAO
     {
         $site = trim($site);
         $tipoValido = v::url()->validate($site);
-        if(!$tipoValido) {
+        if($site==''){
+            $this->site = null;
+        } else if(!$tipoValido) {
             throw new Exception('O valor informado no campo Site é inválido');
         }
         $this->site = $site;
