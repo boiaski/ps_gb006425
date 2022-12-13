@@ -5,6 +5,7 @@ namespace Petshop\Model;
 use Petshop\Core\Attribute\Campo;
 use Petshop\Core\Attribute\Entidade;
 use Petshop\Core\DAO;
+use Petshop\Core\Exception;
 
 #[Entidade(name: 'arquivos')]
 class Arquivo extends DAO
@@ -25,7 +26,7 @@ class Arquivo extends DAO
     protected $tabela;
 
     #[Campo(label: 'Cód. Tabela')]
-    protected $tabelaid;
+    protected $tabelaId;
 
     #[Campo(label: 'Dt. Criação', nn:true, auto:true)]
     protected $created_at;
@@ -64,6 +65,12 @@ class Arquivo extends DAO
     }
     public function setDescricao($descricao): self
     {
+        $descricao = trim($descricao);
+        if($descricao=='') {
+            $this->descricao = null;
+        } else if(strlen($descricao < 5)) {
+            throw new Exception('Descrição inválida');
+        }
         $this->descricao = $descricao;
         return $this;
     }
