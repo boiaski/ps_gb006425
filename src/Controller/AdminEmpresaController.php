@@ -13,6 +13,7 @@ class AdminEmpresaController
         //alimentando dados para a tabrla de listagem
         $dadosListagem = [];
         $dadosListagem['objeto'] = new Empresa;
+        $dadosListagem['imagens'] = true;
         $dadosListagem['colunas'] = [
             ['campo'=>'idempresa',   'class'=>'text-center'],
             ['campo'=>'razaosocial', 'class'=>'text-center'],

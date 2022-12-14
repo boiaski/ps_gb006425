@@ -12,7 +12,8 @@ class AdminCategoriaController
     {
         //alimentando dados para a tabrla de listagem
         $dadosListagem = [];
-        $dadosListagem['objeto'] = new Categoria;
+        $dadosListagem['objeto']  = new Categoria;
+        $dadosListagem['imagens'] = true;
         $dadosListagem['colunas'] = [
             ['campo'=>'idcategoria',  'class'=>'text-center'],
             ['campo'=>'nome',],
