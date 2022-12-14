@@ -51,6 +51,7 @@ class App
         self::$router->get('/meus-dados', '\Petshop\Controller\MeusDadosController@meusDados');
         self::$router->get('/fale-conosco', '\Petshop\Controller\FaleConoscoController@faleConosco');
         self::$router->get('/nossas-lojas', '\Petshop\Controller\NossasLojasController@nossasLojas');
+        self::$router->get('/favoritos', '\Petshop\Controller\MeusFavoritosController@meusFavoritos');
         
         /** SET */
         self::$router->post('/login', '\Petshop\Controller\LoginController@postLogin');
