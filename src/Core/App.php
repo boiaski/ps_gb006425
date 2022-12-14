@@ -105,6 +105,10 @@ class App
             self::$router->get('/empresas', '\Petshop\Controller\AdminEmpresaController@listar');
             self::$router->get('/empresas/{valor}', '\Petshop\Controller\AdminEmpresaController@form');
             self::$router->post('/empresas/{valor}', '\Petshop\Controller\AdminEmpresaController@postForm');
+            
+            self::$router->get('/imagens/(\w+)/(\d+)', '\Petshop\Controller\AdminImagemController@listar');
+            self::$router->get('/imagens/(\w+)/(\d+)/(\w+)', '\Petshop\Controller\AdminImagemController@form');
+            self::$router->post('/imagens/(\w+)/(\d+)/(\w+)', '\Petshop\Controller\AdminImagemController@postForm');
         });
     }
 
