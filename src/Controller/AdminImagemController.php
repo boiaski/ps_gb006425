@@ -45,22 +45,32 @@ class AdminImagemController
 
     public function form($model, $idmodel, $valor)
     {
+        $modelPath = "Petshop\\Model\\{$model}";
+        if(!class_exists($modelPath)) {
+            redireciona('/admin/dashboard', 'danger', 'Página não localizada, Classe de dados destino não definida');
+        }
+
+        $objetoComFiguras = new $modelPath;
+        $objetoComFiguras->loadById($idmodel);
+
         //verifica se o parâmetro tem um número e, se for número, é um ID válido
         if(is_numeric($valor)) {
-            $objeto = new Categoria;
-            $resultado = $objeto->find(['idcategoria =' => $valor]);
+            $objeto = new Arquivo;
+            $resultado = $objeto->find(['idarquivo =' => $valor]);
             if(empty($resultado)) {
-                redireciona('/admin/categorias', 'danger', 'Link inválido, registro não localizado');
+                redireciona("/admin/imagens/{$model}/{$idmodel}", 'danger', 'Link inválido, registro não localizado');
             }
             $_POST = $resultado[0];
         }
 
         //Cria e exibe o formulario
         $dados = [];
-        $dados['titulo'] = 'Categorias - Manutenção';
+        $dados['titulo'] = 'Imagens - Manutenção';
         $dados['formulario'] = $this->renderizaFormulario(empty($_POST));
+        $campoOrdenacao = $objetoComFiguras->getOrderByField();
+        $dados['registroAlvo'] = $model . ': <u class="mb-2 d-inline-block">' . $objetoComFiguras->$campoOrdenacao . '</u>';
 
-        Render::back('categorias', $dados);
+        Render::back('imagens', $dados);
     }
 
     public function postForm($model, $idmodel, $valor)
@@ -99,12 +109,15 @@ class AdminImagemController
     public function renderizaFormulario($novo)
     {
         $dados = [
-            'btn_class' => 'btn btn-warning px-5 mt-5',
+            'btn_class' => 'btn btn-warning px-5 my-5',
             'btn_label' => ($novo ? 'Adicionar' : 'Atualizar'),
+            'enctype'   => 'multipart/form-data',
             'fields' => [
-                ['type'=>'readonly', 'name'=>'idcategoria', 'class'=>'col-2',  'label'=>'Id. Categoria'],
-                ['type'=>'text',     'name'=>'nome',        'class'=>'col-10', 'label'=>'Categoria', 'required'=>true],
-                ['type'=>'textarea', 'name'=>'descricao',   'class'=>'col-12', 'label'=>'Descrição'],
+                ['type'=>'readonly', 'name'=>'idarquivo', 'class'=>'col-2',  'label'=>'Id. Arquivo'],
+                ['type'=>'readonly', 'name'=>'nome',      'class'=>'col-4',  'label'=>'Nome do Arquivo'],
+                ['type'=>'file',     'name'=>'arquivo',        'class'=>'col-4', 'label'=>'Arquivo', 'accept'=>'image/*'],
+                ['type'=>'readonly', 'name'=>'tipo',   'class'=>'col-2'],
+                ['type'=>'textarea', 'name'=>'descricao',   'class'=>'col-12', 'label'=>'Descrição', 'rows'=>'3'],
                 ['type'=>'readonly',     'name'=>'created_at',   'class'=>'col-3', 'label'=>'Criado em:'],
                 ['type'=>'readonly',     'name'=>'updated_at',   'class'=>'col-3', 'label'=>'Atualizado em:'],
             ]
