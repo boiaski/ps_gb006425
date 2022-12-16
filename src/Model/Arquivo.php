@@ -85,13 +85,13 @@ class Arquivo extends DAO
         return $this;
     }
     
-    public function getTabelaid()
+    public function getTabelaId()
     {
-        return $this->tabelaid;
+        return $this->tabelaId;
     }
-    public function setTabelaid($tabelaid): self
+    public function setTabelaId($tabelaId): self
     {
-        $this->tabelaid = $tabelaid;        
+        $this->tabelaId = $tabelaId;        
         return $this;
     }
 
