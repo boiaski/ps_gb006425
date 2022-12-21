@@ -75,6 +75,12 @@
                         <span>Fale Conosco</span>
                     </a>
                 </div>
+                <div class="col-auto d-flex align-items-center">
+                    <a href="/fornecedores" title="Fornecedores">
+                        <i class="bi bi-person pe-1"></i>
+                        <span>Fornecedores</span>
+                    </a>
+                </div>
             </div>
             <div class="topo-site-inferior-fone col-4 d-flex align-items-center justify-content-end">
                 <i class="bi bi-headset pe-1"></i>

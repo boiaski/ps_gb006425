@@ -92,6 +92,10 @@
                             <div class="sb-nav-link-icon"><i class="bi bi-geo-alt-fill fs-5"></i></div>
                             Empresas
                         </a>
+                        <a class="nav-link" href="/admin/fornecedores">
+                            <div class="sb-nav-link-icon"><i class="bi bi-building-check fs-5"></i></div>
+                            Fornecedores
+                        </a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
